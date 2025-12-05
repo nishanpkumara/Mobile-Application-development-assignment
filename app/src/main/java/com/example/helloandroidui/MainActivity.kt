@@ -2,7 +2,7 @@ package com.example.helloandroidui
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 
@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // 1. Find the Toolbar defined in the layout
         val toolbar: MaterialToolbar = findViewById(R.id.toolbar)
 
         // 2. Set this Toolbar as the ActionBar for this Activity
@@ -22,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         // Optional: Setup the button functionality
         val clickButton: Button = findViewById(R.id.clickMeButton)
         clickButton.setOnClickListener {
-            Toast.makeText(this, "Button Clicked!", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
     }
 }
